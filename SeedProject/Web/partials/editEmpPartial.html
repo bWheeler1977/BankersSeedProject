@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <br />
+
+    <form name="empForm" ng-submit="submit()" ng-controller="EditEmpCtrl">
+        <div class="control-group" ng-class="{error: empForm.name.$invalid && !empForm.name.$pristine}">
+            <label style="width:100px;">Name</label>
+            <input type="text" name="name" data-ng-model="employees.name" required style="width:150px;" />
+            <span ng-show="empForm.name.$error.required && !empForm.name.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: empForm.salary.$invalid && !empForm.salary.$pristine}">
+            <label style="width:100px;">Salary</label>
+            <input type="number" name="salary" data-ng-model="employees.salary" required style="width:150px;" />
+            <span ng-show="empForm.salary.$error.required && !empForm.salary.$pristine" class="help-inline">Required</span>
+            <span ng-show="empForm.salary.$error.number && !empForm.salary.$pristine" class="help-inline">Not a number</span>
+        </div>
+        <div class="control-group" ng-class="{error: empForm.dept.$invalid && !empForm.dept.$pristine}">
+            <label style="width:100px;">Department</label>
+            <input type="text" name="dept" data-ng-model="employees.department" required style="width:150px;" />
+            <span ng-show="empForm.dept.$error.required && !empForm.dept.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: empForm.proj.$invalid && !empForm.proj.$pristine}">
+            <label style="width:100px;">Project</label>
+            <input type="text" name="proj" data-ng-model="employees.project" required style="width:150px;" />
+            <span ng-show="empForm.proj.$error.required && !empForm.proj.$pristine" class="help-inline">Required</span>
+        </div>
+        <br />
+        <a href="#/" class="btn btn-warning">Cancel</a>
+        <input type="submit" class="btn btn-primary" ng-disabled="empForm.$invalid" id="empEditSubmit" value="Save" />
+        <button ng-click="destroy()" ng-show="employees.id" class="btn btn-danger">Delete</button>
+    </form>
+</div>

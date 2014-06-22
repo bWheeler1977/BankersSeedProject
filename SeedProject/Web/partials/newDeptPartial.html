@@ -1,0 +1,25 @@
+﻿<div class="container">
+    <br />
+
+    <form name="deptForm" ng-submit="submit()" ng-controller="NewDeptCtrl">
+        <div class="control-group" ng-class="{error: deptForm.deptname.$invalid && !deptForm.deptname.$pristine}">
+            <label style="width:100px;">Name</label>
+            <input type="text" name="deptname" data-ng-model="departments.deptName" required style="width:150px;" />
+            <span ng-show="deptForm.deptname.$error.required && !deptForm.deptname.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: deptForm.location.$invalid && !deptForm.location.$pristine}">
+            <label style="width:100px;">Location</label>
+            <input type="text" name="location" data-ng-model="departments.location" required style="width:150px;" />
+            <span ng-show="deptForm.location.$error.required && !deptForm.location.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: deptForm.budget.$invalid && !deptForm.budget.$pristine}">
+            <label style="width:100px;">Budget</label>
+            <input type="number" name="budget" data-ng-model="departments.budget" required style="width:150px;" />
+            <span ng-show="deptForm.budget.$error.required && !deptForm.budget.$pristine" class="help-inline">Required</span>
+            <span ng-show="deptForm.budget.$error.number && !deptForm.budget.$pristine" class="help-inline">Not a number</span>
+        </div>
+        <br />
+        <a href="#/" class="btn btn-warning">Cancel</a>
+        <button ng-click="save()" class="btn btn-primary" ng-disabled="deptForm.$invalid" id="deptSubmit">Save</button>
+    </form>
+</div>

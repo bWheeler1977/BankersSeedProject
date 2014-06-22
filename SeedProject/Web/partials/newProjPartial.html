@@ -1,0 +1,25 @@
+﻿<div class="container">
+    <br />
+
+    <form name="projForm" ng-submit="submit()" ng-controller="NewProjCtrl">
+        <div class="control-group" ng-class="{error: projForm.projname.$invalid && !projForm.projname.$pristine}">
+            <label style="width:100px;">Name</label>
+            <input type="text" name="projname" data-ng-model="projects.projName" required style="width:150px;" />
+            <span ng-show="projForm.projname.$error.required && !projForm.projname.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: projForm.department.$invalid && !projForm.department.$pristine}">
+            <label style="width:100px;">Department</label>
+            <input type="text" name="department" data-ng-model="projects.department" required style="width:150px;" />
+            <span ng-show="projForm.department.$error.required && !projForm.department.$pristine" class="help-inline">Required</span>
+        </div>
+        <div class="control-group" ng-class="{error: projForm.budget.$invalid && !projForm.budget.$pristine}">
+            <label style="width:100px;">Budget</label>
+            <input type="number" name="budget" data-ng-model="projects.budget" required style="width:150px;" />
+            <span ng-show="projForm.budget.$error.required && !projForm.budget.$pristine" class="help-inline">Required</span>
+            <span ng-show="projForm.budget.$error.number && !projForm.budget.$pristine" class="help-inline">Not a number</span>
+        </div>
+        <br />
+        <a href="#/" class="btn btn-warning">Cancel</a>
+        <button ng-click="save()" class="btn btn-primary" ng-disabled="projForm.$invalid" id="projSubmit">Save</button>
+    </form>
+</div>
